@@ -56,3 +56,13 @@ pre {
   justify-content: space-between;
   text-align: center;
 }
+
+.notFound {
+  color: red;
+  font-weight: bold;
+}
+
+.found {
+  color: green;
+  font-weight: bold;
+}

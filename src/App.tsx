@@ -13,8 +13,7 @@ export default function App() {
   const [currentSample, setCurrentSample] = useState(0)
   const [passing, failing] = useEvaluator(samples, results)
 
-  const resultLabel = (id) =>
-    failing.some((sample) => sample.id === id) ? "Not Found" : "Found"
+  const misNotFound = (id) => failing.some((sample) => sample.id === id)
   const sample = samples[currentSample]
   const expected = results[sample?.id]
 
@@ -66,7 +65,7 @@ export default function App() {
             <select value={currentSample} onChange={handleSampleChange}>
               {samples.map(({ id }) => (
                 <option key={id} value={id}>
-                  #{id} ({resultLabel(id)})
+                  #{id} ({misNotFound(id) ? "Not Found" : "Found"})
                 </option>
               ))}
             </select>
@@ -93,7 +92,9 @@ export default function App() {
           </section>
 
           <div className="results">
-            <section>
+            <section
+              className={misNotFound(currentSample) ? "notFound" : "found"}
+            >
               <h3>Computed Result</h3>
               <pre>
                 {mis.length}
