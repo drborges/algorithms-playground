@@ -23,7 +23,11 @@ function extractSamples(input: string): Sample[] {
       edges.push(edge as Edge)
     }
 
-    samples.push({ n, edges })
+    samples.push({
+      n,
+      edges,
+      id: samples.length,
+    })
 
     samplesCount--
   }

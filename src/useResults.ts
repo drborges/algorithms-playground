@@ -16,7 +16,11 @@ function extractResults(input: string): Result[] {
   while (lines.length > 0) {
     const count = safelyParseInt(lines.shift())
     const vertices = definitionToNumbers(lines.shift())
-    results.push({ count, vertices })
+    results.push({
+      count,
+      vertices,
+      id: results.length,
+    })
   }
 
   return results

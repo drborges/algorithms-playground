@@ -11,11 +11,13 @@ export interface VertexInfo {
 }
 
 export interface Sample {
+  id: number
   n: number
   edges: Edge[]
 }
 
 export interface Result {
+  id: number
   count: number
   vertices: Vertex[]
 }
