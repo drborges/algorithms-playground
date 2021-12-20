@@ -1,7 +1,11 @@
 import { compute } from "./compute"
 import { createGraph } from "./createGraph"
-import { Edge, Vertex } from "../types"
+import { AdjacencyMatrix, Edge, Vertex } from "../types"
 
-export default function computeMIS(n: Vertex, edges: Edge[] = []): Set<Vertex> {
-  return compute(createGraph(n, edges))
+export default function computeMIS(
+  n: Vertex,
+  edges: Edge[] = [],
+): [AdjacencyMatrix, Vertex[]] {
+  const g = createGraph(n, edges)
+  return [g, compute(g).map((v) => v + 1)]
 }

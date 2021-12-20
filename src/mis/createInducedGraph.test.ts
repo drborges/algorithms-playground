@@ -18,4 +18,20 @@ describe("createInducedGraph", () => {
       [null, null, 1, 0],
     ])
   })
+
+  it("generates a null graph", () => {
+    const g = [
+      [null, null, null],
+      [null, null, null],
+      [null, null, 0],
+    ]
+
+    const inducedG = createInducedGraph(g, [2])
+
+    expect(inducedG).toEqual([
+      [null, null, null],
+      [null, null, null],
+      [null, null, null],
+    ])
+  })
 })
